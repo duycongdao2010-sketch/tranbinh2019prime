@@ -95,3 +95,20 @@ app.post('/api/chat',async(req,res)=>{
 });
 app.get('/admin',(req,res)=>res.sendFile(path.join(__dirname,'public','admin.html')));
 app.listen(PORT,()=>console.log(`TranBinh2019Prime chạy tại http://localhost:${PORT}`));
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  apiKey: process.env.GEMINI_API_KEY, // Your Gemini API key
+  baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/", // Point to Gemini's endpoint
+});
+
+async function main() {
+  const response = await client.chat.completions.create({
+    model: "gemini-2.5-flash", // Use a valid Gemini model name
+    messages: [{ role: "user", content: "Hello!" }],
+  });
+
+  console.log(response.choices[0].message.content);
+}
+
+main();
