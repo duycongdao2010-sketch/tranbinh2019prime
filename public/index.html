@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TranBinh2019Prime | Shop Acc Liên Quân</title>
+<style>
+:root{--bg:#090d18;--panel:#121a2b;--panel2:#19243a;--gold:#ffc857;--text:#f4f6fb;--muted:#aeb8cc;--cyan:#49d9e8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:radial-gradient(ellipse at top,#182643 0%,var(--bg) 48%);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,12,23,.94);backdrop-filter:blur(12px);border-bottom:1px solid #29344c}
+.nav{max-width:1180px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:1.15rem;font-weight:900;letter-spacing:.5px;color:var(--gold);white-space:nowrap}
+.brand span{color:#fff}
+nav{display:flex;gap:22px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:.93rem;font-weight:700}
+nav a:hover{color:var(--gold)}
+.menu-toggle{display:none;background:transparent;border:1px solid #3a4965;color:white;border-radius:8px;padding:7px 10px;font-size:1.1rem}
+main{padding-top:68px}
+.container{max-width:1180px;margin:auto;padding:0 22px}
+.hero{min-height:510px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:35px;padding-top:45px;padding-bottom:55px}
+.eyebrow{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:.78rem}
+h1{font-size:clamp(2.5rem,5vw,4.7rem);line-height:1.04;margin:13px 0 20px;letter-spacing:-1.8px}
+h1 em{font-style:normal;color:var(--gold)}
+.hero p{max-width:590px;color:var(--muted);font-size:1.06rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:800;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn-primary{background:var(--gold);color:#16120a}
+.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-secondary{border-color:#52617d;color:#fff;background:#111a2a}
+.hero-art{min-height:320px;border:1px solid #354766;border-radius:24px;background:linear-gradient(145deg,#263c61,#11192b 65%);padding:28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;box-shadow:0 24px 80px #0007}
+.hero-art:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-45px;top:-45px;background:radial-gradient(circle,#ffc85788,transparent 70%)}
+.art-top,.art-bottom{position:relative;z-index:1}
+.art-label{font-size:.78rem;color:var(--cyan);letter-spacing:2px;font-weight:800}
+.art-title{font-size:2.2rem;line-height:1.1;font-weight:900;margin-top:10px}
+.art-symbol{font-size:7rem;text-align:center;filter:drop-shadow(0 10px 25px #ffc85755);line-height:1.1}
+.art-bottom{display:flex;justify-content:space-between;align-items:end;color:var(--muted);font-size:.85rem}
+.art-bottom strong{display:block;color:var(--gold);font-size:1.05rem}
+section{padding:48px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}
+.section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);margin:4px 0 0}
+.section-head p{margin:0;color:var(--muted);max-width:440px}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
+.filter{background:#111a2a;border:1px solid #34435f;color:var(--muted);padding:8px 13px;border-radius:999px;cursor:pointer}
+.filter.active,.filter:hover{background:var(--gold);border-color:var(--gold);color:#15120a}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:linear-gradient(180deg,#172238,#101726);border:1px solid #2b3a56;border-radius:17px;overflow:hidden;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-5px);border-color:#7184a7}
+.card-art{height:175px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 25%,#475e85,#1b2941 55%,#111827)}
+.card-art .emoji{font-size:4.4rem;filter:drop-shadow(0 7px 15px #0008)}
+.tag{position:absolute;top:12px;left:12px;background:#ffc857;color:#191307;font-size:.73rem;font-weight:900;padding:5px 9px;border-radius:7px}
+.card-body{padding:17px}
+.card h3{margin:0 0 5px;font-size:1.1rem}
+.card p{margin:0;color:var(--muted);font-size:.9rem}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.stats span{font-size:.76rem;color:#c7d2e5;background:#202d43;padding:5px 8px;border-radius:6px}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #29364e;padding-top:14px;margin-top:12px}
+.price{font-size:1.2rem;color:var(--gold);font-weight:900}
+.small-btn{background:#263956;color:#fff;border:0;padding:9px 12px;border-radius:8px;font-weight:800;cursor:pointer}
+.small-btn:hover{background:#354d73}
+.notice{border:1px solid #344763;background:#111a2a;border-radius:15px;padding:22px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.step{padding:20px;border-radius:14px;background:var(--panel);border:1px solid #293954}
+.step b{display:block;color:var(--gold);font-size:1.2rem;margin-bottom:6px}
+.step p{color:var(--muted);margin:0}
+.contact-box{display:flex;align-items:center;justify-content:space-between;gap:20px;background:linear-gradient(110deg,#233b5e,#131c2e);border:1px solid #354a6c;padding:28px;border-radius:18px}
+.contact-box h2{margin:0 0 5px}
+.contact-box p{margin:0;color:var(--muted)}
+footer{border-top:1px solid #26344d;padding:28px 22px;text-align:center;color:#8592aa;font-size:.86rem}
+.ad-box{position:fixed;left:18px;bottom:18px;width:255px;z-index:900;background:linear-gradient(145deg,#fff0c2,#ffc857);color:#201809;border-radius:14px;padding:15px;box-shadow:0 12px 35px #0008;border:1px solid #ffe8a1}
+.ad-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ad-label{font-size:.67rem;letter-spacing:1.5px;font-weight:900;opacity:.7}
+.ad-close{border:0;background:#2a2113;color:#fff;border-radius:6px;width:25px;height:25px;cursor:pointer;font-size:1rem}
+.ad-box h3{margin:7px 0 4px;font-size:1.05rem}
+.ad-box p{font-size:.83rem;margin:0 0 10px}
+.ad-cta{display:block;text-align:center;background:#17130c;color:#fff;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:800;font-size:.84rem}
+.ad-box.hidden{display:none}
+.toast{position:fixed;z-index:1200;left:50%;bottom:25px;transform:translateX(-50%);background:#e9f8ec;color:#15371d;border-radius:10px;padding:12px 18px;box-shadow:0 8px 30px #0006;display:none;max-width:90%;font-weight:700}
+.toast.show{display:block}
+/* Catalog controls and product detail dialog */
+.catalog-tools{display:grid;grid-template-columns:minmax(220px,1fr) auto auto;align-items:center;gap:12px;margin:0 0 22px}
+.search-wrap{display:flex;align-items:center;gap:9px;min-height:46px;padding:0 13px;border:1px solid #34435f;border-radius:11px;background:#101827;color:var(--cyan)}
+.search-wrap input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font:inherit;font-size:.92rem}
+.search-wrap input::placeholder{color:#8795ac}
+.sort-wrap{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.85rem}
+.sort-wrap select{min-height:44px;background:#111a2a;color:var(--text);border:1px solid #34435f;border-radius:10px;padding:0 10px;font:inherit}
+.result-count{color:var(--muted);font-size:.82rem;white-space:nowrap}
+.account-modal{position:fixed;inset:0;z-index:1400;background:#030711c9;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(5px)}
+.account-modal.open{display:flex}
+.modal-card{position:relative;width:min(460px,100%);padding:27px;border:1px solid #3a4c6a;border-radius:20px;background:linear-gradient(150deg,#1b2a42,#0d1422);box-shadow:0 25px 80px #000b}
+.modal-close{position:absolute;right:14px;top:12px;width:38px;height:38px;border:0;border-radius:10px;background:#26364f;color:white;font-size:1.5rem;cursor:pointer}
+.modal-card h2{margin:8px 40px 8px 0;font-size:1.7rem}.modal-card p{color:var(--muted)}
+.modal-warning{margin:17px 0;padding:12px;border:1px solid #66512a;background:#342a17;border-radius:10px;color:#ffe4a2;font-size:.87rem}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap}
+.back-to-top{position:fixed;right:24px;bottom:92px;z-index:850;width:42px;height:42px;border:1px solid #455875;border-radius:12px;background:#14223a;color:var(--gold);font-size:1.4rem;cursor:pointer;box-shadow:0 8px 22px #0006;opacity:0;pointer-events:none;transform:translateY(8px);transition:.2s}
+.back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+.card[hidden]{display:none!important}
+@media(max-width:850px){.catalog-tools{grid-template-columns:1fr auto}.search-wrap{grid-column:1/-1}.result-count{justify-self:end}}
+@media(max-width:600px){.catalog-tools{grid-template-columns:1fr}.search-wrap{grid-column:auto}.sort-wrap{justify-content:space-between}.sort-wrap select{flex:1}.result-count{justify-self:start}.modal-card{padding:22px}.back-to-top{right:12px;bottom:80px}}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{min-height:280px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column}}
+@media(max-width:600px){.nav{padding:12px 16px}.menu-toggle{display:block}nav{display:none;position:absolute;top:100%;left:0;right:0;background:#0b1020;padding:16px 22px 20px;flex-direction:column;align-items:stretch;border-bottom:1px solid #29344c}nav.open{display:flex}nav a{padding:7px 0}.container{padding:0 16px}.hero{padding-top:30px;min-height:unset}h1{font-size:2.7rem}.grid,.steps{grid-template-columns:1fr}.card-art{height:160px}.contact-box{align-items:flex-start;flex-direction:column}.ad-box{left:10px;bottom:10px;width:min(240px,calc(100vw - 20px));padding:12px}.ad-box h3{font-size:.98rem}.ad-box p{font-size:.78rem}section{padding:36px 0}}
+
+/* Layout refresh: editorial hero + sidebar catalog + stronger page hierarchy */
+body{background:linear-gradient(180deg,#0a1020 0%,#090d18 42%,#0c1321 100%)}
+.nav{max-width:1320px;padding-top:15px;padding-bottom:15px}
+.brand{font-size:1.22rem;letter-spacing:1px}
+nav a{padding:9px 12px;border-radius:9px;transition:background .2s,color .2s}
+nav a:hover{background:#1b2940}
+main{padding-top:74px}
+.container{max-width:1320px;padding-left:28px;padding-right:28px}
+.hero{min-height:470px;grid-template-columns:minmax(0,1.1fr) minmax(330px,.9fr);gap:54px;padding:58px 0 66px;position:relative}
+.hero:after{content:"LIÊN QUÂN MOBILE  •  SHOP ACC";position:absolute;left:0;bottom:20px;color:#6f819f;font-size:.68rem;font-weight:800;letter-spacing:3px}
+.hero>div:first-child{max-width:650px}
+.hero h1{font-size:clamp(3rem,5.5vw,5.5rem);max-width:700px}
+.hero p{font-size:1.08rem;line-height:1.85;max-width:560px}
+.hero-art{min-height:350px;border-radius:30px;padding:32px;background:linear-gradient(145deg,#314c75 0%,#17253c 50%,#101725 100%);box-shadow:0 30px 90px #0007,inset 0 1px #ffffff24}
+.hero-art:after{content:"2019 PRIME";position:absolute;right:20px;bottom:18px;font-size:.65rem;letter-spacing:4px;color:#ffffff55;font-weight:900}
+.art-symbol{font-size:8rem;text-shadow:0 0 45px #ffc85744}
+section{padding:58px 0}
+#accounts{display:grid;grid-template-columns:220px minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:30px;align-items:start}
+#accounts>.section-head{grid-column:1/-1;grid-row:1;align-items:center;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid #293751}
+#accounts>.section-head p{max-width:390px}
+#accounts>.filters{grid-column:1;grid-row:2 / span 2;display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:17px;background:linear-gradient(180deg,#121d30,#0e1524);border:1px solid #293954;border-radius:16px;margin:0;position:sticky;top:92px}
+#accounts>.filters:before{content:"DANH MỤC";color:#7f91ad;font-size:.7rem;font-weight:900;letter-spacing:2px;padding:0 7px 7px}
+#accounts .filter{text-align:left;border-radius:9px;padding:11px 12px;font-weight:750;background:transparent;border-color:transparent}
+#accounts .filter:before{content:"›";display:inline-block;width:18px;color:var(--cyan)}
+#accounts .filter.active,#accounts .filter:hover{background:#253650;color:var(--gold);border-color:#344b6c}
+.catalog-tools{grid-column:2;grid-row:2;margin-bottom:18px;grid-template-columns:minmax(180px,1fr) auto auto;padding:0 0 2px}
+.search-wrap{min-height:49px;background:#111b2d;border-color:#354866}
+.sort-wrap select{min-height:49px}
+.result-count{padding:8px 11px;border:1px solid #2b3b55;border-radius:9px;background:#111a2a}
+#accountGrid{grid-column:2;grid-row:3;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{border-radius:14px;background:#111a2a;border-color:#273750;box-shadow:0 10px 28px #00000016}
+.card-art{height:190px;background:radial-gradient(ellipse at 50% 15%,#526c98 0%,#253957 43%,#111827 100%)}
+.card-art .emoji{font-size:4.7rem}
+.card-body{padding:18px}
+.card h3{font-size:1.08rem;letter-spacing:.1px}
+.card-foot{align-items:center}
+.price{font-size:1.12rem;white-space:nowrap}
+.small-btn{padding:10px 12px;white-space:nowrap}
+#guide .section-head,#contact .section-head{margin-bottom:22px}
+#guide{border-top:1px solid #202d43}
+.notice{line-height:1.8;background:linear-gradient(110deg,#151f32,#101725);padding:25px}
+.steps{gap:18px}
+.step{min-height:155px;padding:23px;border-radius:16px;background:linear-gradient(145deg,#172238,#101725)}
+.step b{font-size:1.05rem;letter-spacing:.4px}
+.contact-box{padding:34px;border-radius:22px;background:radial-gradient(ellipse at 100% 0%,#354f76 0%,#1a2b45 45%,#121b2c 100%)}
+footer{margin-top:28px;background:#080c15;padding:32px 22px}
+.ad-box{width:235px;border-radius:16px;box-shadow:0 15px 45px #0009}
+.back-to-top{right:24px;bottom:100px}
+@media(max-width:1100px){
+ .container{padding-left:22px;padding-right:22px}
+ #accounts{grid-template-columns:185px minmax(0,1fr);column-gap:20px}
+ #accountGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hero{gap:28px}
+}
+@media(max-width:760px){
+ main{padding-top:64px}
+ .container{padding-left:17px;padding-right:17px}
+ .hero{display:flex;flex-direction:column;align-items:stretch;gap:24px;padding:38px 0 52px}
+ .hero:after{bottom:17px;font-size:.58rem;letter-spacing:2px}
+ .hero h1{font-size:clamp(2.65rem,10vw,4rem);letter-spacing:-1.5px}
+ .hero-art{min-height:260px;border-radius:22px;padding:23px}
+ .art-title{font-size:1.8rem}.art-symbol{font-size:5.4rem}
+ section{padding:40px 0}
+ #accounts{display:flex;flex-direction:column;gap:18px}
+ #accounts>.section-head{width:100%;margin-bottom:0;padding-bottom:18px}
+ #accounts>.filters{position:static;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:12px;gap:6px}
+ #accounts>.filters:before{grid-column:1/-1}
+ #accounts .filter{text-align:center;padding:10px 7px}
+ #accounts .filter:before{content:"";width:0}
+ .catalog-tools{width:100%;display:grid;grid-template-columns:1fr auto;gap:10px;margin-bottom:0}
+ .search-wrap{grid-column:1/-1}
+ #accountGrid{width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .card-art{height:145px}.card-art .emoji{font-size:3.5rem}
+ .card-body{padding:13px}.card h3{font-size:.98rem}.card p{font-size:.82rem}
+ .stats{gap:5px;margin:10px 0}.stats span{font-size:.68rem;padding:4px 6px}
+ .card-foot{align-items:flex-start;flex-direction:column;gap:9px}
+ .small-btn{width:100%}.price{font-size:1.08rem}
+ .steps{grid-template-columns:1fr}.step{min-height:0}
+ .contact-box{padding:24px}
+}
+@media(max-width:420px){
+ #accountGrid{grid-template-columns:1fr}
+ .card{display:grid;grid-template-columns:112px minmax(0,1fr)}
+ .card-art{height:100%;min-height:210px}
+ .card-art .emoji{font-size:3rem}
+ .card-body{padding:12px}
+ .card-foot{margin-top:10px;padding-top:10px}
+ .ad-box{width:190px}
+ .ad-box p{display:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="#home" style="text-decoration:none">TB<span>2019</span> PRIME</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Mở menu">☰</button>
+    <nav id="mainNav">
+      <a href="#home">Trang chủ</a>
+      <a href="#accounts">Danh sách acc</a>
+      <a href="#guide">Hướng dẫn mua</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">TranBinh2019Prime • Liên Quân Mobile</div>
+        <h1>Tìm acc chất.<br><em>Vào trận ngay.</em></h1>
+        <p>Khám phá các tài khoản Liên Quân Mobile với nhiều mức giá và bộ sưu tập tướng, trang phục khác nhau. Chọn tài khoản phù hợp với phong cách chơi của bạn.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#accounts">Khám phá tài khoản ↗</a>
+          <a class="btn btn-secondary" href="#guide">Cách mua acc</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Minh họa shop game">
+        <div class="art-top"><div class="art-label">PLAYER MARKET / 2026</div><div class="art-title">YOUR NEXT<br>MAIN ACCOUNT</div></div>
+        <div class="art-symbol">⚔️</div>
+        <div class="art-bottom"><div><strong>SHOP ACC LIÊN QUÂN</strong>Chọn acc, chọn chiến thuật.</div><div>EST. 2019</div></div>
+      </div>
+    </section>
+
+    <section id="accounts">
+      <div class="section-head">
+        <div><div class="eyebrow">Bộ sưu tập</div><h2>Tài khoản nổi bật</h2></div>
+        <p>Danh sách tài khoản và số lượng được cập nhật từ file Excel của shop.</p>
+      </div>
+      <div class="filters" aria-label="Lọc tài khoản">
+        <button class="filter active" data-filter="all">Tất cả</button>
+        <button class="filter" data-filter="starter">Giá tốt</button>
+        <button class="filter" data-filter="skin">Nhiều skin</button>
+        <button class="filter" data-filter="rank">Rank cao</button>
+      </div>
+      <div class="catalog-tools">
+        <label class="search-wrap"><icon aria-hidden="true">⌕</icon><input id="accountSearch" type="search" placeholder="Tìm acc theo tên, skin, rank..." aria-label="Tìm tài khoản"></label>
+        <label class="sort-wrap"><span>Sắp xếp</span><select id="accountSort" aria-label="Sắp xếp tài khoản"><option value="featured">Nổi bật</option><option value="low">Giá tăng dần</option><option value="high">Giá giảm dần</option><option value="name">Tên A–Z</option></select></label>
+        <span id="resultCount" class="result-count">6 tài khoản</span>
+      </div>
+      <div class="grid" id="accountGrid"><div class="notice">Đang tải danh sách tài khoản...</div></div>
+    </section>
+
+    <section id="guide">
+      <div class="section-head"><div><div class="eyebrow">Mua bán minh bạch</div><h2>Hướng dẫn mua acc</h2></div></div>
+      <div class="notice">Các tài khoản và giá bên trên chỉ là dữ liệu mẫu giao diện, chưa phải danh sách bán hàng thật. Trước khi thanh toán, hãy kiểm tra kỹ thông tin tài khoản, phương thức bàn giao và chính sách hỗ trợ. Việc mua bán tài khoản có thể chịu giới hạn theo điều khoản của trò chơi.</div>
+      <div class="steps">
+        <div class="step"><b>01 / Chọn acc</b><p>Xem mô tả, bộ sưu tập và mức giá của tài khoản bạn quan tâm.</p></div>
+        <div class="step"><b>02 / Xác minh</b><p>Liên hệ người bán để xác minh thông tin, quyền truy cập và điều kiện giao dịch.</p></div>
+        <div class="step"><b>03 / Bàn giao</b><p>Chỉ thanh toán qua phương thức an toàn sau khi đã hiểu rõ các điều khoản.</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-box">
+        <div><h2>Cần tư vấn chọn acc?</h2><p>Thay phần liên hệ này bằng kênh chính thức của shop trước khi đưa website lên mạng.</p></div>
+        <a class="btn btn-primary" href="mailto:shop@example.com?subject=Tu%20van%20acc%20Lien%20Quan">Liên hệ shop</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>© 2026 TranBinh2019Prime • Website demo giao diện. Không liên kết chính thức với Liên Quân Mobile.</footer>
+
+<aside class="ad-box" id="adBox" aria-label="Quảng cáo">
+  <div class="ad-head"><span class="ad-label">QUẢNG CÁO</span><button class="ad-close" id="closeAd" aria-label="Đóng quảng cáo">×</button></div>
+  <h3>⚡ Ưu đãi dành cho game thủ</h3>
+  <p>Khám phá bộ sưu tập acc nổi bật trong tuần. Nội dung quảng cáo mẫu, hãy thay bằng ưu đãi thật của shop.</p>
+  <a class="ad-cta" href="#accounts">Xem tài khoản →</a>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<div class="account-modal" id="orderModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close" id="orderClose" aria-label="Đóng">×</button>
+    <div class="eyebrow">ĐẶT HÀNG</div><h2 id="orderProduct">Đặt mua tài khoản</h2>
+    <p id="orderPrice"></p>
+    <form id="orderForm" class="order-form">
+      <label>Họ và tên<input name="customerName" required maxlength="100" placeholder="Tên người nhận"></label>
+      <label>Số điện thoại<input name="phone" required maxlength="25" placeholder="Số điện thoại liên hệ"></label>
+      <label>Email (không bắt buộc)<input name="email" type="email" maxlength="150" placeholder="you@example.com"></label>
+      <label>Số lượng<input name="quantity" type="number" min="1" value="1" required></label>
+      <button class="btn btn-primary" type="submit">Tạo đơn & thanh toán mô phỏng</button>
+      <p class="form-note">Thanh toán chỉ là mô phỏng, không thu tiền thật.</p>
+    </form>
+  </div>
+</div>
+<div class="account-modal" id="accountModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card"><button class="modal-close" id="modalClose" aria-label="Đóng chi tiết">×</button><div class="eyebrow">CHI TIẾT TÀI KHOẢN</div><h2 id="modalTitle">Thông tin acc</h2><p id="modalDescription">Thông tin sản phẩm mẫu.</p><div class="modal-warning">Đây là sản phẩm minh họa. Xác minh thông tin và giá bán trước khi giao dịch.</div><div class="modal-actions"><button class="btn btn-secondary" id="modalBack">Tiếp tục xem acc</button><a class="btn btn-primary" href="#contact" id="modalContact">Liên hệ shop</a></div></div>
+</div>
+<button id="backToTop" class="back-to-top" aria-label="Lên đầu trang" title="Lên đầu trang">↑</button>
+
+<script>
+const menuToggle=document.getElementById('menuToggle'),mainNav=document.getElementById('mainNav');
+if(menuToggle){menuToggle.addEventListener('click',()=>mainNav.classList.toggle('open'));mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.classList.remove('open')));}
+document.getElementById('closeAd')?.addEventListener('click',()=>document.getElementById('adBox').classList.add('hidden'));
+const toast=document.getElementById('toast');let toastTimer;
+function notify(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),3800);}
+const grid=document.getElementById('accountGrid'),searchInput=document.getElementById('accountSearch'),sortSelect=document.getElementById('accountSort'),resultCount=document.getElementById('resultCount');
+let products=[],activeFilter='all',selectedProduct=null;
+const money=n=>new Intl.NumberFormat('vi-VN').format(n)+'đ';
+function renderCatalog(){
+ const q=searchInput.value.trim().toLocaleLowerCase('vi');
+ let list=products.filter(p=>(activeFilter==='all'||p.category===activeFilter)&&[p.name,p.description,p.rank,p.id,...(p.tags||[])].join(' ').toLocaleLowerCase('vi').includes(q));
+ if(sortSelect.value==='low')list.sort((a,b)=>a.price-b.price);
+ if(sortSelect.value==='high')list.sort((a,b)=>b.price-a.price);
+ if(sortSelect.value==='name')list.sort((a,b)=>a.name.localeCompare(b.name,'vi'));
+ resultCount.textContent=list.length+' tài khoản';
+ grid.innerHTML=list.length?'':'<div class="notice">Không tìm thấy tài khoản phù hợp.</div>';
+ list.forEach(p=>{
+  const card=document.createElement('article');card.className='card';
+  const art=document.createElement('div');art.className='card-art';const tag=document.createElement('span');tag.className='tag';tag.textContent=p.badge||'TÀI KHOẢN';const emoji=document.createElement('span');emoji.className='emoji';emoji.textContent=p.emoji||'🎮';art.append(tag,emoji);
+  const body=document.createElement('div');body.className='card-body';const h=document.createElement('h3');h.textContent=p.name;const desc=document.createElement('p');desc.textContent=p.description||'Tài khoản Liên Quân Mobile';const stats=document.createElement('div');stats.className='stats';
+  [p.rank,p.heroes!=null?(p.heroes+' tướng'):null,p.skins!=null?(p.skins+' trang phục'):null].filter(Boolean).forEach(t=>{const s=document.createElement('span');s.textContent=t;stats.appendChild(s)});
+  const stock=document.createElement('span');stock.className='stock-pill'+(p.stock<1?' out':'');stock.textContent=p.stock>0?('Còn '+p.stock+' tài khoản'):'Hết hàng';
+  const foot=document.createElement('div');foot.className='card-foot';const price=document.createElement('span');price.className='price';price.textContent=money(p.price);const buy=document.createElement('button');buy.className='small-btn';buy.textContent=p.stock>0?'Đặt mua':'Hết hàng';buy.disabled=p.stock<1;buy.addEventListener('click',()=>openOrder(p));
+  foot.append(price,buy);body.append(h,desc,stats,stock,foot);card.append(art,body);grid.appendChild(card);
+ });
+}
+async function loadProducts(){
+ try{const r=await fetch('/api/products');if(!r.ok)throw new Error();products=await r.json();renderCatalog();}
+ catch(e){grid.innerHTML='<div class="notice">Không kết nối được máy chủ. Hãy chạy website bằng lệnh npm start, không mở trực tiếp file HTML.</div>';resultCount.textContent='Chưa tải được dữ liệu';}
+}
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeFilter=b.dataset.filter;renderCatalog();}));
+searchInput.addEventListener('input',renderCatalog);sortSelect.addEventListener('change',renderCatalog);
+const orderModal=document.getElementById('orderModal'),orderForm=document.getElementById('orderForm');
+function openOrder(p){selectedProduct=p;document.getElementById('orderProduct').textContent=p.name;document.getElementById('orderPrice').textContent='Đơn giá: '+money(p.price)+' • Còn '+p.stock;orderForm.elements.quantity.max=p.stock;orderForm.elements.quantity.value=1;orderModal.classList.add('open');orderModal.setAttribute('aria-hidden','false');}
+function closeOrder(){orderModal.classList.remove('open');orderModal.setAttribute('aria-hidden','true');}
+document.getElementById('orderClose').addEventListener('click',closeOrder);
+orderModal.addEventListener('click',e=>{if(e.target===orderModal)closeOrder()});
+orderForm.addEventListener('submit',async e=>{
+ e.preventDefault();if(!selectedProduct)return;
+ const data=Object.fromEntries(new FormData(orderForm).entries());data.quantity=Number(data.quantity);data.productId=selectedProduct.id;
+ try{const r=await fetch('/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const result=await r.json();if(!r.ok)throw new Error(result.error||'Không tạo được đơn');
+ closeOrder();await loadProducts();
+ const paid=confirm('Đơn '+result.orderId+' đã được tạo với trạng thái CHỜ THANH TOÁN. Đây là thanh toán mô phỏng, không trừ tiền thật. Nhấn OK để đánh dấu đã thanh toán mô phỏng.');
+ if(paid){const pr=await fetch('/api/orders/'+encodeURIComponent(result.orderId)+'/simulate-payment',{method:'POST'});const x=await pr.json();notify(pr.ok?'Thanh toán mô phỏng thành công. Mã đơn: '+result.orderId:(x.error||'Không cập nhật được thanh toán'));}
+ else notify('Đã lưu đơn hàng '+result.orderId+' ở trạng thái chờ thanh toán.');
+ }catch(err){notify(err.message);}
+});
+document.getElementById('modalClose')?.addEventListener('click',()=>document.getElementById('accountModal').classList.remove('open'));
+document.getElementById('modalBack')?.addEventListener('click',()=>document.getElementById('accountModal').classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOrder()});
+const backToTop=document.getElementById('backToTop');window.addEventListener('scroll',()=>backToTop.classList.toggle('visible',window.scrollY>420),{passive:true});backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+loadProducts();
+</script>
+
+<style>
+/* AI chat widget */
+.ai-launcher{position:fixed;right:20px;bottom:20px;z-index:1100;width:60px;height:60px;border:0;border-radius:50%;background:linear-gradient(135deg,#ffc857,#ff9f43);color:#17120a;font-size:1.55rem;font-weight:900;cursor:pointer;box-shadow:0 10px 30px #0008;transition:transform .2s}
+.ai-launcher:hover{transform:translateY(-3px) scale(1.03)}
+.ai-chat{position:fixed;right:20px;bottom:92px;z-index:1100;width:min(360px,calc(100vw - 28px));height:min(490px,calc(100vh - 125px));display:none;flex-direction:column;overflow:hidden;border:1px solid #405273;border-radius:18px;background:#0e1626;box-shadow:0 20px 65px #000a}
+.ai-chat.open{display:flex}
+.ai-chat-header{padding:15px 16px;background:linear-gradient(110deg,#263d60,#15233a);display:flex;align-items:center;gap:11px;border-bottom:1px solid #3a4b68}
+.ai-avatar{width:38px;height:38px;display:grid;place-items:center;background:#ffc857;color:#1b1609;border-radius:50%;font-weight:900}
+.ai-title{flex:1}.ai-title strong{display:block;font-size:.98rem}.ai-status{font-size:.76rem;color:#a8e8bd}.ai-chat-close{background:transparent;border:0;color:#fff;font-size:1.5rem;cursor:pointer;padding:0 4px}
+.ai-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.ai-msg{max-width:88%;padding:10px 12px;border-radius:13px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.ai-msg.bot{align-self:flex-start;background:#1c2a40;color:#eaf0fa;border-bottom-left-radius:4px}
+.ai-msg.user{align-self:flex-end;background:#ffc857;color:#1d1607;border-bottom-right-radius:4px}
+.ai-suggestions{display:flex;gap:7px;flex-wrap:wrap;padding:0 12px 10px}
+.ai-suggestions button{background:#15233a;color:#cbd7ea;border:1px solid #344764;border-radius:999px;padding:6px 9px;font-size:.75rem;cursor:pointer}
+.ai-suggestions button:hover{border-color:#ffc857;color:#ffc857}
+.ai-form{display:flex;gap:8px;padding:11px;border-top:1px solid #2c3b55;background:#101a2b}
+.ai-form input{min-width:0;flex:1;background:#0b1220;color:#fff;border:1px solid #354661;border-radius:10px;padding:11px;outline:none;font:inherit;font-size:.87rem}
+.ai-form input:focus{border-color:#ffc857}.ai-form button{border:0;border-radius:10px;background:#ffc857;color:#1b1508;font-weight:900;padding:0 14px;cursor:pointer}
+@media(max-width:600px){.ai-launcher{right:13px;bottom:13px;width:54px;height:54px}.ai-chat{right:10px;bottom:77px;width:calc(100vw - 20px);height:min(470px,calc(100vh - 100px))}.ad-box{bottom:10px}}
+
+/* Responsive layout: adapts to viewport size and touch input */
+@media screen and (min-width: 1100px) {
+  .container{padding-left:28px;padding-right:28px}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .hero{grid-template-columns:1.15fr .85fr;gap:48px}
+  .ai-chat{width:380px;height:520px}
+}
+@media screen and (min-width: 761px) and (max-width: 1099px) {
+  .container{padding-left:24px;padding-right:24px}
+  .hero{grid-template-columns:1fr 0.9fr;gap:24px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  nav{gap:14px}
+  .brand{font-size:1rem}
+}
+@media screen and (max-width: 760px) {
+  .nav{padding:12px 16px}
+  .menu-toggle{display:block;min-width:44px;min-height:44px}
+  nav{display:none;position:absolute;top:100%;left:0;right:0;background:#0b1020;padding:14px 22px 20px;flex-direction:column;align-items:stretch;gap:8px;border-bottom:1px solid #29344c}
+  nav.open{display:flex}
+  nav a{padding:10px 4px}
+  .hero{grid-template-columns:1fr;min-height:unset;padding-top:30px;gap:24px}
+  .hero-art{min-height:260px}
+  .section-head{align-items:flex-start;flex-direction:column}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+  .steps{grid-template-columns:1fr}
+  .contact-box{align-items:flex-start;flex-direction:column}
+  .ad-box{left:10px;bottom:10px;width:min(230px,calc(100vw - 20px));padding:11px}
+  .ai-launcher{right:12px;bottom:12px;width:54px;height:54px}
+  .ai-chat{right:10px;bottom:76px;width:calc(100vw - 20px);height:min(470px,calc(100dvh - 94px));}
+}
+@media screen and (max-width: 480px) {
+  .container{padding-left:14px;padding-right:14px}
+  h1{font-size:clamp(2.25rem,11vw,2.8rem);letter-spacing:-1px}
+  .hero p{font-size:.98rem}
+  .hero-art{padding:21px;min-height:230px}
+  .art-title{font-size:1.8rem}
+  .art-symbol{font-size:5.5rem}
+  .grid{grid-template-columns:1fr}
+  .card-art{height:155px}
+  .card-body{padding:15px}
+  .section-head h2{font-size:1.7rem}
+  .filters{gap:7px}
+  .filter{padding:8px 11px}
+  .notice{padding:16px}
+  .ad-box{max-width:205px}
+  .ad-box p{font-size:.75rem}
+  .ai-chat{height:min(450px,calc(100dvh - 90px));border-radius:15px}
+  .ai-form input{padding:10px}
+}
+/* Touchscreens get larger controls; mouse users retain hover effects. */
+@media (pointer: coarse) {
+  .filter,.small-btn,.ai-suggestions button,.ai-form button,.ai-chat-close,.ad-close{min-height:42px}
+  nav a{min-height:42px;display:flex;align-items:center}
+}
+@media (hover: none) {
+  .card:hover,.btn-primary:hover,.ai-launcher:hover{transform:none;filter:none}
+}
+@media screen and (max-height: 520px) and (orientation: landscape) {
+  .ai-chat{height:calc(100dvh - 86px);bottom:72px}
+  .ai-launcher{width:46px;height:46px}
+  .hero{padding-top:24px;padding-bottom:28px}
+}
+
+
+/* Distinct desktop and mobile composition */
+@media (min-width: 1100px) {
+  body{background:radial-gradient(ellipse at 78% 8%,#1b3151 0,transparent 32%),linear-gradient(180deg,#080d18,#0b1220 55%,#090d18)}
+  .nav{max-width:1440px;padding-left:42px;padding-right:42px}
+  .container{max-width:1440px;padding-left:42px;padding-right:42px}
+  .hero{min-height:540px;padding-top:72px;padding-bottom:82px}
+  .hero>div:first-child{padding:18px 0}
+  .hero-art{min-height:390px}
+  #accounts{grid-template-columns:230px minmax(0,1fr);column-gap:34px}
+  #accountGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .card{display:flex;flex-direction:column;min-height:100%}
+  .card-body{display:flex;flex:1;flex-direction:column}
+  .card-foot{margin-top:auto;padding-top:16px}
+  .ad-box{left:24px;bottom:24px;width:270px}
+  .ai-launcher{right:28px;bottom:26px;width:64px;height:64px}
+}
+@media (min-width: 761px) and (max-width: 1099px) {
+  .hero{grid-template-columns:1fr .8fr;min-height:420px;padding-top:44px}
+  .hero-art{min-height:300px}
+  #accounts{display:grid;grid-template-columns:175px minmax(0,1fr);column-gap:20px}
+  #accounts>.section-head{grid-column:1/-1}
+  #accounts>.filters{grid-column:1;grid-row:2 / span 2;position:sticky;top:84px}
+  .catalog-tools{grid-column:2;grid-row:2;grid-template-columns:minmax(0,1fr) auto}
+  .search-wrap{grid-column:1/-1}
+  #accountGrid{grid-column:2;grid-row:3;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card-art{height:165px}
+}
+@media (max-width: 760px) {
+  /* Phone is a compact, app-like layout rather than a squeezed desktop page. */
+  body{background:#090f1c;padding-bottom:20px}
+  header{background:rgba(7,12,22,.97);box-shadow:0 6px 24px #0004}
+  .nav{min-height:62px;padding:8px 15px;gap:10px}
+  .brand{font-size:1rem;letter-spacing:.3px}
+  main{padding-top:62px}
+  .container{padding-left:15px;padding-right:15px}
+  .hero{display:flex;flex-direction:column;align-items:stretch;gap:18px;padding:28px 0 35px;min-height:0}
+  .hero>div:first-child{order:1}
+  .hero-art{order:2;min-height:155px;height:155px;border-radius:17px;padding:15px 17px;display:grid;grid-template-columns:1fr 84px;grid-template-rows:1fr auto;gap:4px 8px}
+  .hero-art:before{width:150px;height:150px;right:-25px;top:-35px}
+  .art-top{grid-column:1;grid-row:1}
+  .art-label{font-size:.62rem;letter-spacing:1.3px}
+  .art-title{font-size:1.25rem;line-height:1.05;margin-top:5px}
+  .art-symbol{grid-column:2;grid-row:1 / span 2;align-self:center;font-size:3.5rem}
+  .art-bottom{grid-column:1;grid-row:2;font-size:.68rem;align-self:end}
+  .art-bottom strong{font-size:.75rem}
+  .hero:after{display:none}
+  .hero h1{font-size:clamp(2.25rem,10vw,3.2rem);letter-spacing:-1.2px;line-height:1.02;margin:9px 0 13px}
+  .hero p{font-size:.92rem;line-height:1.65;margin:0}
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+  .actions .btn{display:flex;align-items:center;justify-content:center;text-align:center;padding:11px 9px;font-size:.83rem;min-height:46px}
+  section{padding:32px 0}
+  .section-head{gap:8px;margin-bottom:17px}
+  .section-head h2{font-size:1.55rem}
+  .section-head p{font-size:.83rem;line-height:1.5}
+  #accounts{display:flex;flex-direction:column;gap:0}
+  #accounts>.section-head{width:100%;order:0;padding:0 0 15px;margin-bottom:15px}
+  #accounts>.filters{order:1;position:static;width:calc(100% + 30px);margin:0 -15px 14px;padding:0 15px 7px;border:0;border-radius:0;background:transparent;display:flex;flex-direction:row;overflow-x:auto;flex-wrap:nowrap;gap:8px;scrollbar-width:none}
+  #accounts>.filters::-webkit-scrollbar{display:none}
+  #accounts>.filters:before{display:none}
+  #accounts .filter{flex:0 0 auto;text-align:center;padding:9px 13px;border:1px solid #34435f;background:#121b2c;border-radius:999px;font-size:.8rem;white-space:nowrap}
+  #accounts .filter:before{display:none}
+  .catalog-tools{order:2;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;margin:0 0 15px;padding:0}
+  .search-wrap{grid-column:1/-1;min-height:47px;border-radius:12px}
+  .sort-wrap{grid-column:1;display:flex;gap:7px;align-items:center;font-size:.78rem}
+  .sort-wrap select{min-width:0;width:100%;min-height:42px}
+  .result-count{grid-column:2;align-self:center;font-size:.76rem;padding:8px 9px;white-space:nowrap}
+  #accountGrid{order:3;width:100%;display:grid;grid-template-columns:1fr;gap:11px}
+  .card{display:grid;grid-template-columns:104px minmax(0,1fr);border-radius:13px;min-height:0;box-shadow:0 5px 18px #0002}
+  .card:hover{transform:none}
+  .card-art{height:100%;min-height:156px;grid-column:1;grid-row:1;align-content:center}
+  .card-art .emoji{font-size:2.8rem}
+  .tag{top:7px;left:6px;font-size:.58rem;padding:4px 5px}
+  .card-body{grid-column:2;grid-row:1;padding:11px 10px;display:flex;flex-direction:column;min-width:0}
+  .card h3{font-size:.93rem;line-height:1.25;margin-bottom:5px}
+  .card p{font-size:.76rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .stats{gap:4px;margin:8px 0}
+  .stats span{font-size:.63rem;padding:4px 5px}
+  .card-foot{padding-top:8px;margin-top:auto;gap:6px;align-items:center;flex-wrap:wrap}
+  .price{font-size:.91rem}
+  .small-btn{font-size:.72rem;padding:7px 8px;white-space:normal}
+  #guide .notice{font-size:.85rem;line-height:1.65;padding:15px}
+  .steps{display:flex;flex-direction:column;gap:9px;margin-top:13px}
+  .step{display:grid;grid-template-columns:82px minmax(0,1fr);gap:10px;padding:13px;align-items:start}
+  .step b{font-size:.9rem;margin:0}
+  .step p{font-size:.82rem;line-height:1.5}
+  .contact-box{padding:19px;border-radius:15px;gap:14px}
+  .contact-box h2{font-size:1.35rem}
+  .contact-box p{font-size:.84rem}
+  .contact-box .btn{width:100%;text-align:center}
+  footer{padding:24px 18px 100px;font-size:.76rem}
+  .ad-box{left:10px;bottom:10px;width:180px;padding:10px;border-radius:12px}
+  .ad-box h3{font-size:.83rem;line-height:1.25}
+  .ad-box p{font-size:.69rem;line-height:1.35;margin-bottom:7px}
+  .ad-cta{font-size:.73rem;padding:7px}
+  .ai-launcher{right:12px;bottom:12px;width:53px;height:53px}
+  .ai-chat{right:8px;bottom:74px;width:calc(100vw - 16px);height:min(68dvh,520px);border-radius:17px}
+  .back-to-top{right:15px;bottom:78px;width:38px;height:38px}
+  .account-modal{padding:14px}
+  .modal-card{padding:20px}
+}
+@media (max-width: 380px) {
+  .brand{font-size:.88rem}
+  .hero h1{font-size:2.2rem}
+  .actions{grid-template-columns:1fr}
+  .card{grid-template-columns:88px minmax(0,1fr)}
+  .card-art{min-height:170px}
+  .card-body{padding:9px 8px}
+  .stats span{font-size:.59rem}
+  .price{font-size:.83rem}
+  .small-btn{font-size:.68rem;padding:6px}
+  .ad-box{width:155px}
+  .ad-box p{display:none}
+}
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 900px) {
+  .hero{display:grid;grid-template-columns:1fr .8fr;align-items:center}
+  .hero-art{height:145px;min-height:145px}
+  .hero h1{font-size:2.2rem}
+  .ai-chat{height:calc(100dvh - 82px);bottom:70px}
+}
+
+
+.order-form{display:grid;gap:12px;margin-top:18px}
+.order-form label{display:grid;gap:5px;color:var(--muted);font-size:.9rem}
+.order-form input{width:100%;padding:11px 12px;border-radius:9px;border:1px solid #40516e;background:#0b1423;color:#fff;font:inherit}
+.order-form .btn{width:100%;margin-top:5px}
+.form-note{font-size:.8rem!important;margin:0!important;color:#e8c878!important}
+.stock-pill{display:inline-block;margin-top:8px;padding:4px 8px;border-radius:7px;background:#203b32;color:#a8edc2;font-size:.78rem}
+.stock-pill.out{background:#47272b;color:#ffb6bd}
+</style>
+
+<button class="ai-launcher" id="aiLauncher" aria-label="Mở chatbox AI" aria-expanded="false">✦</button>
+<section class="ai-chat" id="aiChat" aria-label="Chatbox trợ lý AI">
+  <div class="ai-chat-header">
+    <div class="ai-avatar">AI</div>
+    <div class="ai-title"><strong>Trợ lý TranBinh2019Prime</strong><span class="ai-status">● Đang hoạt động</span></div>
+    <button class="ai-chat-close" id="aiClose" aria-label="Đóng chatbox">×</button>
+  </div>
+  <div class="ai-messages" id="aiMessages" aria-live="polite">
+    <div class="ai-msg bot">Xin chào! Mình là trợ lý của TranBinh2019Prime. Mình có thể tư vấn sản phẩm, giá và hỗ trợ đặt hàng. Bạn cần hỗ trợ gì?</div>
+  </div>
+  <div class="ai-suggestions">
+    <button type="button" data-prompt="Shop có những acc nào?">Danh sách acc</button>
+    <button type="button" data-prompt="Acc nào giá rẻ nhất?">Acc giá rẻ</button>
+    <button type="button" data-prompt="Làm sao mua acc an toàn?">Mua an toàn</button>
+  </div>
+  <form class="ai-form" id="aiForm"><input id="aiInput" type="text" placeholder="Nhập tin nhắn..." autocomplete="off" aria-label="Tin nhắn của bạn" required><button type="submit" aria-label="Gửi tin nhắn">Gửi</button></form>
+</section>
+<script>
+(()=>{
+ const launcher=document.getElementById('aiLauncher'),chat=document.getElementById('aiChat'),close=document.getElementById('aiClose'),messages=document.getElementById('aiMessages'),form=document.getElementById('aiForm'),input=document.getElementById('aiInput');
+ function toggle(show){chat.classList.toggle('open',show);launcher.setAttribute('aria-expanded',String(show));if(show)input.focus();}
+ launcher.addEventListener('click',()=>toggle(!chat.classList.contains('open')));close.addEventListener('click',()=>toggle(false));
+ function add(text,who){const n=document.createElement('div');n.className='ai-msg '+who;n.textContent=text;messages.appendChild(n);messages.scrollTop=messages.scrollHeight;}
+ async function send(text){const q=text.trim();if(!q)return;add(q,'user');input.value='';const pending=document.createElement('div');pending.className='ai-msg bot';pending.textContent='Đang suy nghĩ...';messages.appendChild(pending);messages.scrollTop=messages.scrollHeight;
+  try{const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q})});const data=await r.json();if(!r.ok)throw new Error(data.error||'Chatbot chưa được cấu hình');pending.textContent=data.reply;}
+  catch(e){pending.textContent='Chatbot AI chưa kết nối được. Chủ shop cần cấu hình OPENAI_API_KEY trên máy chủ. Chi tiết: '+e.message;}
+  messages.scrollTop=messages.scrollHeight;
+ }
+ form.addEventListener('submit',e=>{e.preventDefault();send(input.value)});document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>send(b.dataset.prompt)));
+})();
+</script>
+
+</body>
+</html>

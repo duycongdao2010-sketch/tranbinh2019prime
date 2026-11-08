@@ -1,0 +1,33 @@
+{
+  "products": [
+    {
+      "id": "ACC001",
+      "name": "Acc Khởi Đầu",
+      "description": "Phù hợp người mới",
+      "category": "starter",
+      "badge": "TÀI KHOẢN",
+      "emoji": "🎮",
+      "rank": "Kim Cương",
+      "heroes": 30,
+      "skins": 10,
+      "price": 99000,
+      "stock": 2,
+      "tags": "giá rẻ"
+    },
+    {
+      "id": "ACC002",
+      "name": "adasds",
+      "description": "a",
+      "category": "all",
+      "badge": "TÀI KHOẢN",
+      "emoji": "🎮",
+      "rank": "Radiant",
+      "heroes": 300000,
+      "skins": 1000,
+      "price": 10000,
+      "stock": 2,
+      "tags": "a"
+    }
+  ],
+  "orders": []
+}
