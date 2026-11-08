@@ -73,10 +73,10 @@ section{padding:48px 0}
 .contact-box p{margin:0;color:var(--muted)}
 footer{border-top:1px solid #26344d;padding:28px 22px;text-align:center;color:#8592aa;font-size:.86rem}
 
-/* Ads Styles */
+/* Ads styling for both left and right brand ads */
 .ad-box{position:fixed;bottom:18px;width:245px;z-index:900;border-radius:14px;padding:15px;box-shadow:0 12px 35px #0008}
 .ad-box.ad-left{left:18px;background:linear-gradient(145deg,#fff0c2,#ffc857);color:#201809;border:1px solid #ffe8a1}
-.ad-box.ad-right{right:88px;background:linear-gradient(145deg,#d2bcfc,#9b51e0);color:#fff;border:1px solid #b57cff}
+.ad-box.ad-right{right:18px;background:linear-gradient(145deg,#d2bcfc,#9b51e0);color:#fff;border:1px solid #b57cff}
 .ad-box.ad-right .ad-cta{background:#32115c}
 .ad-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .ad-label{font-size:.67rem;letter-spacing:1.5px;font-weight:900;opacity:.75}
@@ -109,7 +109,7 @@ footer{border-top:1px solid #26344d;padding:28px 22px;text-align:center;color:#8
 @media(max-width:850px){.catalog-tools{grid-template-columns:1fr auto}.search-wrap{grid-column:1/-1}.result-count{justify-self:end}}
 @media(max-width:600px){.catalog-tools{grid-template-columns:1fr}.search-wrap{grid-column:auto}.sort-wrap{justify-content:space-between}.sort-wrap select{flex:1}.result-count{justify-self:start}.modal-card{padding:22px}.back-to-top{right:12px;bottom:80px}}
 @media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{min-height:280px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column}}
-@media(max-width:600px){.nav{padding:12px 16px}.menu-toggle{display:block}nav{display:none;position:absolute;top:100%;left:0;right:0;background:#0b1020;padding:16px 22px 20px;flex-direction:column;align-items:stretch;border-bottom:1px solid #29344c}nav.open{display:flex}nav a{padding:7px 0}.container{padding:0 16px}.hero{padding-top:30px;min-height:unset}h1{font-size:2.7rem}.grid,.steps{grid-template-columns:1fr}.card-art{height:160px}.contact-box{align-items:flex-start;flex-direction:column}.ad-box{width:min(180px,calc(50vw - 15px));padding:10px}.ad-box.ad-left{left:6px;bottom:8px}.ad-box.ad-right{right:6px;bottom:8px}.ad-box h3{font-size:.84rem}.ad-box p{font-size:.68rem}section{padding:36px 0}}
+@media(max-width:600px){.nav{padding:12px 16px}.menu-toggle{display:block}nav{display:none;position:absolute;top:100%;left:0;right:0;background:#0b1020;padding:16px 22px 20px;flex-direction:column;align-items:stretch;border-bottom:1px solid #29344c}nav.open{display:flex}nav a{padding:7px 0}.container{padding:0 16px}.hero{padding-top:30px;min-height:unset}h1{font-size:2.7rem}.grid,.steps{grid-template-columns:1fr}.card-art{height:160px}.contact-box{align-items:flex-start;flex-direction:column}.ad-box{width:min(170px,calc(50vw - 12px));padding:9px}.ad-box.ad-left{left:6px;bottom:6px}.ad-box.ad-right{right:6px;bottom:6px}.ad-box h3{font-size:.8rem}.ad-box p{font-size:.65rem}section{padding:36px 0}}
 
 body{background:linear-gradient(180deg,#0a1020 0%,#090d18 42%,#0c1321 100%)}
 .nav{max-width:1320px;padding-top:15px;padding-bottom:15px}
@@ -295,20 +295,20 @@ footer{margin-top:28px;background:#080c15;padding:32px 22px}
 
 <footer>© 2026 TranBinh2019Prime • Website demo giao diện. Không liên kết chính thức với Liên Quân Mobile.</footer>
 
-<!-- Left Ad Box (Brand: Red Bull Gaming) -->
-<aside class="ad-box ad-left" id="adBoxLeft" aria-label="Quảng cáo Red Bull">
+<!-- Left Sponsored Ad -->
+<aside class="ad-box ad-left" id="adBoxLeft" aria-label="Quảng cáo tài trợ trái">
   <div class="ad-head"><span class="ad-label">TÀI TRỢ</span><button class="ad-close" id="closeAdLeft" aria-label="Đóng quảng cáo">×</button></div>
-  <h3>⚡ Red Bull Gaming</h3>
-  <p>Tăng năng lượng, bứt phá rank thủ cực đỉnh suốt mùa giải!</p>
-  <a class="ad-cta" href="https://www.redbull.com" target="_blank" rel="noopener">Khám phá ngay →</a>
+  <h3>⚡ Phụ Kiện Gaming X</h3>
+  <p>Giảm giá 30% tai nghe và bàn phím cơ cho game thủ chuyên nghiệp.</p>
+  <a class="ad-cta" href="#accounts" target="_blank">Khám phá →</a>
 </aside>
 
-<!-- Right Ad Box (Brand: Predator Gaming) -->
-<aside class="ad-box ad-right" id="adBoxRight" aria-label="Quảng cáo Predator">
-  <div class="ad-head"><span class="ad-label">ĐỐI TÁC</span><button class="ad-close" id="closeAdRight" aria-label="Đóng quảng cáo">×</button></div>
-  <h3>🔥 Predator Gear</h3>
-  <p>Trải nghiệm phụ kiện gaming chuyên nghiệp cho game thủ đỉnh cao.</p>
-  <a class="ad-cta" href="https://www.acer.com" target="_blank" rel="noopener">Xem sản phẩm →</a>
+<!-- Right Sponsored Ad -->
+<aside class="ad-box ad-right" id="adBoxRight" aria-label="Quảng cáo tài trợ phải">
+  <div class="ad-head"><span class="ad-label">SPONSORED</span><button class="ad-close" id="closeAdRight" aria-label="Đóng quảng cáo">×</button></div>
+  <h3>🔥 Nạp Thẻ Siêu Tốc</h3>
+  <p>Chiết khấu cao, uy tín hàng đầu cho mọi tựa game mobile hot nhất.</p>
+  <a class="ad-cta" href="#accounts" target="_blank">Xem ngay →</a>
 </aside>
 
 <div class="toast" id="toast" role="status"></div>
@@ -328,6 +328,7 @@ footer{margin-top:28px;background:#080c15;padding:32px 22px}
     </form>
   </div>
 </div>
+
 <div class="account-modal" id="accountModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-card"><button class="modal-close" id="modalClose" aria-label="Đóng chi tiết">×</button><div class="eyebrow">CHI TIẾT TÀI KHOẢN</div><h2 id="modalTitle">Thông tin acc</h2><p id="modalDescription">Thông tin sản phẩm mẫu.</p><div class="modal-warning">Đây là sản phẩm minh họa. Xác minh thông tin và giá bán trước khi giao dịch.</div><div class="modal-actions"><button class="btn btn-secondary" id="modalBack">Tiếp tục xem acc</button><a class="btn btn-primary" href="#contact" id="modalContact">Liên hệ shop</a></div></div>
 </div>
