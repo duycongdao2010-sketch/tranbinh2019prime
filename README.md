@@ -1,45 +1,35 @@
 # TranBinh2019Prime
 
-## Chạy trên máy tính
-1. Cài Node.js 18 trở lên.
-2. Giải nén project.
-3. Mở terminal tại thư mục project và chạy:
-   ```bash
-   npm install
-   npm start
-   ```
-4. Mở http://localhost:3000
-5. Trang quản trị: http://localhost:3000/admin
+Website bán tài khoản Liên Quân Mobile với giao diện responsive, hệ thống quản lý sản phẩm và đặt hàng.
 
-## Excel
-Tải file Excel ở trang `/admin`. Dùng sheet đầu tiên, hàng đầu là tiêu đề.
-Cột bắt buộc: `Tên tài khoản`, `Giá`, `Số lượng`.
-Cột tùy chọn: `ID`, `Mô tả`, `Danh mục`, `Nhãn`, `Icon`, `Rank`, `Số tướng`, `Số skin`, `Từ khóa`.
-Danh mục hỗ trợ: `starter`, `skin`, `rank`, hoặc để trống.
-Mỗi lần tải file, danh sách sản phẩm hiện tại được thay thế hoàn toàn.
-Có thể bắt đầu với file mẫu `products-template.csv` (mở bằng Excel rồi Save As .xlsx).
+## Features
+- Hiển thị, tìm kiếm và lọc sản phẩm.
+- Quản lý tồn kho bằng file Excel.
+- Đặt hàng và theo dõi đơn hàng.
+- Thanh toán mô phỏng.
+- AI chatbot hỗ trợ khách hàng.
+- Trang quản trị dành cho admin.
 
-## Chatbot AI
-Thiết lập biến môi trường `OPENAI_API_KEY` trên máy chủ. Có thể đặt `OPENAI_MODEL` (mặc định `gpt-4.1-mini`).
-Không đưa API key vào HTML hoặc commit lên Git.
+## Tech Stack
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Netlify Functions
+- **Database:** Supabase
+- **AI:** OpenAI API
+- **Hosting:** Netlify
 
-## Bảo vệ trang quản trị
-Trước khi triển khai công khai, bắt buộc đặt biến môi trường `ADMIN_TOKEN` thành chuỗi bí mật dài và mạnh. Nhập token này trong trang quản trị khi tải Excel/xem đơn.
-Ví dụ Linux/macOS:
-```bash
-export ADMIN_TOKEN="thay-bang-chuoi-bi-mat-dai"
-export OPENAI_API_KEY="sk-..."
-npm start
-```
-Windows PowerShell:
-```powershell
-$env:ADMIN_TOKEN="thay-bang-chuoi-bi-mat-dai"
-$env:OPENAI_API_KEY="sk-..."
-npm start
-```
+## Deployment
+1. Clone repository.
+2. Cài đặt dependencies: `npm install`
+3. Cấu hình environment variables trên Netlify.
+4. Chạy thử local: `npx netlify dev`
+5. Deploy thông qua GitHub và Netlify.
 
-## Triển khai Internet
-Đưa toàn bộ thư mục lên một dịch vụ Node.js hosting có hỗ trợ persistent disk/volume. Đặt `PORT` (hosting thường tự cấp), `ADMIN_TOKEN`, `OPENAI_API_KEY`. Vì dữ liệu hiện lưu ở `data/store.json`, phải bật persistent disk hoặc thay bằng database managed trước khi scale nhiều instance. Không deploy bản demo này cho giao dịch tiền thật khi chưa bổ sung xác thực quản trị, phân quyền, chống spam/rate-limit, backup, HTTPS và kiểm thử bảo mật.
+## Environment Variables
+- `SUPABASE_URL`
+- `SUPABASE_SECRET_KEY`
+- `ADMIN_TOKEN`
+- `OPENAI_API_KEY` (optional)
+- `OPENAI_MODEL` (optional)
 
-## Thanh toán
-Đây là thanh toán mô phỏng: khách tạo đơn, tồn kho được giữ lại, sau đó có thể bấm xác nhận mô phỏng trong hộp thoại. Không có giao dịch ngân hàng và không thu tiền thật.
+## Note
+This project is for educational and demonstration purposes. Payment functionality is simulated and does not process real transactions.
