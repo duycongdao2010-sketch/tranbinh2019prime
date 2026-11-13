@@ -1,35 +1,66 @@
 # TranBinh2019Prime
 
-Website bán tài khoản Liên Quân Mobile với giao diện responsive, hệ thống quản lý sản phẩm và đặt hàng.
+Website bán tài khoản **Liên Quân Mobile**, hỗ trợ quản lý sản phẩm, đặt hàng và chatbot AI.
 
 ## Features
-- Hiển thị, tìm kiếm và lọc sản phẩm.
-- Quản lý tồn kho bằng file Excel.
-- Đặt hàng và theo dõi đơn hàng.
+
+- Hiển thị danh sách sản phẩm.
+- Tìm kiếm, lọc và sắp xếp sản phẩm.
+- Quản lý giá và số lượng tồn kho bằng file Excel.
+- Đặt hàng và tự động cập nhật tồn kho.
 - Thanh toán mô phỏng.
-- AI chatbot hỗ trợ khách hàng.
+- Chatbot AI hỗ trợ khách hàng.
 - Trang quản trị dành cho admin.
 
 ## Tech Stack
+
 - **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Netlify Functions
-- **Database:** Supabase
+- **Backend:** Node.js, Express.js
+- **Data Storage:** JSON
+- **Excel Processing:** SheetJS (xlsx)
 - **AI:** OpenAI API
-- **Hosting:** Netlify
+- **Hosting:** Render
+- **Version Control:** GitHub
+
+## Run Locally
+
+1. Clone repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Configure environment variables.
+4. Start the server:
+   ```bash
+   npm start
+   ```
+5. Open `http://localhost:3000`.
 
 ## Deployment
-1. Clone repository.
-2. Cài đặt dependencies: `npm install`
-3. Cấu hình environment variables trên Netlify.
-4. Chạy thử local: `npx netlify dev`
-5. Deploy thông qua GitHub và Netlify.
+
+1. Push the project to GitHub.
+2. Create a new **Web Service** on Render.
+3. Connect the GitHub repository.
+4. Configure:
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+5. Add the required environment variables.
+6. Deploy the service.
 
 ## Environment Variables
-- `SUPABASE_URL`
-- `SUPABASE_SECRET_KEY`
-- `ADMIN_TOKEN`
-- `OPENAI_API_KEY` (optional)
-- `OPENAI_MODEL` (optional)
 
-## Note
-This project is for educational and demonstration purposes. Payment functionality is simulated and does not process real transactions.
+| Variable | Description |
+|---|---|
+| `OPENAI_API_KEY` | OpenAI API key |
+| `ADMIN_TOKEN` | Admin authentication token |
+
+## Notes
+
+- Payment functionality is simulated and does not process real transactions.
+- The OpenAI API key must be kept private and configured on the server.
+- The current JSON-based storage is suitable for demonstration purposes. Render's local filesystem may be reset after certain restarts or deployments, so persistent storage or a database is recommended for production use.
+
+This project is developed for educational and demonstration purposes.
